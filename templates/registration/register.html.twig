@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="form">
+  
+        {{ form_errors(registrationForm) }}
+
+        {{ form_start(registrationForm) }}
+        <h1>Inscription</h1>
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.firstname) }}
+            {{ form_row(registrationForm.lastname) }}
+            {{ form_row(registrationForm.phone_number) }}
+            {{ form_row(registrationForm.plainPassword) }}
+            <div class="checkbox">
+                <a href="{{ path('app_legal_notice') }}">
+                    Acceptez les conditions
+                    {{ form_row(registrationForm.agreeTerms) }}
+                </a>
+            </div>
+
+            <button type="submit" class="btn-form">S'inscrire</button>
+        {{ form_end(registrationForm) }}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voyage{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section class="singlecard">
+            
+            <h1>{{ voyage.title }}</h1>
+
+            <div class="head-card">
+                <div class="adresse info">
+                    <img src="{{ asset('images/images_site/svg_icons/marker.svg') }}" alt="icone carte">
+                    {{ voyage.adresse }}, {{ voyage.city }}, {{ voyage.country }}
+                </div>
+
+                <div class="btn-addcart">
+                    <a href="{{ path('cart_add', {'id': voyage.id}) }}" class="buy">Ajouter au panier {{ voyage.price }} €</a>
+                </div>
+            </div>
+
+            <div class="images">
+                <img src="{{ asset('images/voyages/' ~ voyage.images[0].name()) }}" alt="image du voyage">
+                <img src="{{ asset('images/voyages/' ~ voyage.images[1].name()) }}" alt="image du voyage">
+            
+                <img src="{{ asset('images/voyages/' ~ voyage.images[2].name()) }}" alt="image du voyage">
+                <img src="{{ asset('images/voyages/' ~ voyage.images[3].name()) }}" alt="image du voyage">
+                <img src="{{ asset('images/voyages/' ~ voyage.images[4].name()) }}" alt="image du voyage">
+            </div>
+
+            <div class="desc">
+                <h4>Description</h4>
+                <p>{{ voyage.description|raw }}</p>
+            </div>
+            
+            <div class="infos-services">
+                <div class="infos-left">
+                    <h4>Informations et services</h4>
+                    <div class="infos-grid">
+                        <div class="info">
+                            <img src="{{ asset('images/images_site/svg_icons/P-parking.svg') }}" alt="icone parking">
+                            {% if voyage.parking %}
+                                <span>parking</span>
+                            {% else %}
+                                <span>pas de parking</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="info">
+                            <img src="{{ asset('images/images_site/svg_icons/wifi.svg') }}" alt="icone wifi">
+                            {% if voyage.freewifi %}
+                                <span>wifi gratuit</span>
+                            {% else %}
+                                <span>wifi payant</span>
+                            {% endif %}
+						</div>
+
+                        <div class="info">
+                            <img src="{{ asset('images/images_site/svg_icons/pool-water.svg') }}" alt="icone picsine">
+                            {% if voyage.pool %}
+                                <span>piscine</span>
+                            {% else %}
+                                <span>pas de piscine</span>
+                            {% endif %}
+						</div>
+
+                        <div class="info">
+                            <img src="{{ asset('images/images_site/svg_icons/dog-face.svg') }}" alt="icone animaux">
+                            {% if voyage.pool %}
+                                <span>accepte les animaux</span>
+                            {% else %}
+                                <span>n'accepte pas les animaux</span>
+                            {% endif %}
+						</div>
+                    </div>
+                </div>
+
+                <div class="infos-right"></div>
+
+            </div>
+
+        </section>
+    </div>
+{% endblock %}
+
+
