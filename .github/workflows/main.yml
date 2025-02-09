@@ -22,4 +22,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }} # mot de passe FTP
           protocol: ftp
           local-dir: ./
-          server-dir: /www/
+          server-dir: /www/globebox/
