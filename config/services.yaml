@@ -25,5 +25,5 @@ services:
 
     
     # config/services.yaml
-    App\Twig\GlobalVariables:
+    App\Services\GlobalVariables:
         tags: ['twig.extension']
